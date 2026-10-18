@@ -1,24 +1,57 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { campaign } from "@/config/store";
+import { products } from "@/config/products";
+import { Flame, ProductCard, meta } from "@/components/site";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => meta("Handmade Luxury Candles & Diwali Hampers, Melbourne", "Celebrate Diwali with the gift of light — handcrafted luxury candles and curated gift hampers from Melbourne."),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const hampers = products.filter((p) => p.seasonal === campaign.key && p.featured);
+  const candles = products.filter((p) => p.category === "candle");
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <section className="relative overflow-hidden bg-ember px-4 py-24 text-center text-ivory md:py-36">
+        <Flame className="mx-auto h-16 w-12 animate-flicker text-gold" />
+        <p className="eyebrow mt-6">{campaign.eyebrow}</p>
+        <h1 className="mx-auto mt-4 max-w-4xl text-5xl leading-tight md:text-7xl">{campaign.title}</h1>
+        <p className="mx-auto mt-6 max-w-2xl text-champagne md:text-lg">{campaign.copy}</p>
+        <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+          <Link to={campaign.primaryCta.to} className="btn-gold">{campaign.primaryCta.label}</Link>
+          <Link to={campaign.secondaryCta.to} className="btn-outline text-ivory">{campaign.secondaryCta.label}</Link>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-20 md:px-8">
+        <div className="text-center"><p className="eyebrow">Featured hampers</p><h2 className="mt-3 text-4xl md:text-5xl">Gifts of Light</h2></div>
+        <div className="mx-auto mt-12 grid max-w-4xl gap-10 sm:grid-cols-2">{hampers.map((p) => <ProductCard key={p.slug} p={p} />)}</div>
+      </section>
+
+      <section className="bg-muted px-4 py-20 md:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center"><p className="eyebrow">Signature range</p><h2 className="mt-3 text-4xl md:text-5xl">Luxury Candles</h2></div>
+          <div className="mt-12 grid grid-cols-2 gap-6 lg:grid-cols-4">{candles.map((p) => <ProductCard key={p.slug} p={p} />)}</div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 md:grid-cols-2 md:px-8">
+        <div className="grid aspect-square place-items-center bg-ember"><Flame className="h-24 w-16 animate-flicker text-gold" /></div>
+        <div>
+          <p className="eyebrow">Handmade in Melbourne</p>
+          <h2 className="mt-3 text-4xl md:text-5xl">Poured by hand, slowly</h2>
+          <p className="mt-5 leading-relaxed text-muted-foreground">Every EMBEROVIA candle is made in small batches in Melbourne — blended, poured and finished by hand, with fragrance compositions inspired by the world's great perfume houses.</p>
+          <Link to="/our-story" className="btn-outline mt-8">Read our story</Link>
+        </div>
+      </section>
+
+      <section className="bg-espresso px-4 py-20 text-center text-ivory">
+        <p className="eyebrow">The art of gifting</p>
+        <h2 className="mx-auto mt-3 max-w-2xl text-4xl md:text-5xl">A gift that glows long after it's given</h2>
+        <p className="mx-auto mt-5 max-w-xl text-champagne">From festive celebrations to quiet thank-yous, discover gifts wrapped with care.</p>
+        <Link to="/gifts" className="btn-gold mt-8">Explore gifts</Link>
+      </section>
+    </>
   );
 }
