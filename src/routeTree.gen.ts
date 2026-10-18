@@ -10,33 +10,206 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CandleSafetyRouteImport } from './routes/candle-safety'
+import { Route as CandlesRouteImport } from './routes/candles'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DiwaliHampersRouteImport } from './routes/diwali-hampers'
+import { Route as GiftsRouteImport } from './routes/gifts'
+import { Route as OrderConfirmationRouteImport } from './routes/order-confirmation'
+import { Route as OurStoryRouteImport } from './routes/our-story'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ShippingReturnsRouteImport } from './routes/shipping-returns'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CandleSafetyRoute = CandleSafetyRouteImport.update({
+  id: '/candle-safety',
+  path: '/candle-safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CandlesRoute = CandlesRouteImport.update({
+  id: '/candles',
+  path: '/candles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiwaliHampersRoute = DiwaliHampersRouteImport.update({
+  id: '/diwali-hampers',
+  path: '/diwali-hampers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GiftsRoute = GiftsRouteImport.update({
+  id: '/gifts',
+  path: '/gifts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderConfirmationRoute = OrderConfirmationRouteImport.update({
+  id: '/order-confirmation',
+  path: '/order-confirmation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurStoryRoute = OurStoryRouteImport.update({
+  id: '/our-story',
+  path: '/our-story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShippingReturnsRoute = ShippingReturnsRouteImport.update({
+  id: '/shipping-returns',
+  path: '/shipping-returns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductSlugRoute = ProductSlugRouteImport.update({
+  id: '/product/$slug',
+  path: '/product/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/candle-safety': typeof CandleSafetyRoute
+  '/candles': typeof CandlesRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
+  '/diwali-hampers': typeof DiwaliHampersRoute
+  '/gifts': typeof GiftsRoute
+  '/order-confirmation': typeof OrderConfirmationRoute
+  '/our-story': typeof OurStoryRoute
+  '/privacy': typeof PrivacyRoute
+  '/shipping-returns': typeof ShippingReturnsRoute
+  '/terms': typeof TermsRoute
+  '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/candle-safety': typeof CandleSafetyRoute
+  '/candles': typeof CandlesRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
+  '/diwali-hampers': typeof DiwaliHampersRoute
+  '/gifts': typeof GiftsRoute
+  '/order-confirmation': typeof OrderConfirmationRoute
+  '/our-story': typeof OurStoryRoute
+  '/privacy': typeof PrivacyRoute
+  '/shipping-returns': typeof ShippingReturnsRoute
+  '/terms': typeof TermsRoute
+  '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/candle-safety': typeof CandleSafetyRoute
+  '/candles': typeof CandlesRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
+  '/diwali-hampers': typeof DiwaliHampersRoute
+  '/gifts': typeof GiftsRoute
+  '/order-confirmation': typeof OrderConfirmationRoute
+  '/our-story': typeof OurStoryRoute
+  '/privacy': typeof PrivacyRoute
+  '/shipping-returns': typeof ShippingReturnsRoute
+  '/terms': typeof TermsRoute
+  '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/candle-safety'
+    | '/candles'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/diwali-hampers'
+    | '/gifts'
+    | '/order-confirmation'
+    | '/our-story'
+    | '/privacy'
+    | '/shipping-returns'
+    | '/terms'
+    | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/candle-safety'
+    | '/candles'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/diwali-hampers'
+    | '/gifts'
+    | '/order-confirmation'
+    | '/our-story'
+    | '/privacy'
+    | '/shipping-returns'
+    | '/terms'
+    | '/product/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/candle-safety'
+    | '/candles'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/diwali-hampers'
+    | '/gifts'
+    | '/order-confirmation'
+    | '/our-story'
+    | '/privacy'
+    | '/shipping-returns'
+    | '/terms'
+    | '/product/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CandleSafetyRoute: typeof CandleSafetyRoute
+  CandlesRoute: typeof CandlesRoute
+  CartRoute: typeof CartRoute
+  CheckoutRoute: typeof CheckoutRoute
+  ContactRoute: typeof ContactRoute
+  DiwaliHampersRoute: typeof DiwaliHampersRoute
+  GiftsRoute: typeof GiftsRoute
+  OrderConfirmationRoute: typeof OrderConfirmationRoute
+  OurStoryRoute: typeof OurStoryRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ShippingReturnsRoute: typeof ShippingReturnsRoute
+  TermsRoute: typeof TermsRoute
+  ProductSlugRoute: typeof ProductSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +221,115 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/candle-safety': {
+      id: '/candle-safety'
+      path: '/candle-safety'
+      fullPath: '/candle-safety'
+      preLoaderRoute: typeof CandleSafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/candles': {
+      id: '/candles'
+      path: '/candles'
+      fullPath: '/candles'
+      preLoaderRoute: typeof CandlesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diwali-hampers': {
+      id: '/diwali-hampers'
+      path: '/diwali-hampers'
+      fullPath: '/diwali-hampers'
+      preLoaderRoute: typeof DiwaliHampersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gifts': {
+      id: '/gifts'
+      path: '/gifts'
+      fullPath: '/gifts'
+      preLoaderRoute: typeof GiftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order-confirmation': {
+      id: '/order-confirmation'
+      path: '/order-confirmation'
+      fullPath: '/order-confirmation'
+      preLoaderRoute: typeof OrderConfirmationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-story': {
+      id: '/our-story'
+      path: '/our-story'
+      fullPath: '/our-story'
+      preLoaderRoute: typeof OurStoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping-returns': {
+      id: '/shipping-returns'
+      path: '/shipping-returns'
+      fullPath: '/shipping-returns'
+      preLoaderRoute: typeof ShippingReturnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product/$slug': {
+      id: '/product/$slug'
+      path: '/product/$slug'
+      fullPath: '/product/$slug'
+      preLoaderRoute: typeof ProductSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CandleSafetyRoute: CandleSafetyRoute,
+  CandlesRoute: CandlesRoute,
+  CartRoute: CartRoute,
+  CheckoutRoute: CheckoutRoute,
+  ContactRoute: ContactRoute,
+  DiwaliHampersRoute: DiwaliHampersRoute,
+  GiftsRoute: GiftsRoute,
+  OrderConfirmationRoute: OrderConfirmationRoute,
+  OurStoryRoute: OurStoryRoute,
+  PrivacyRoute: PrivacyRoute,
+  ShippingReturnsRoute: ShippingReturnsRoute,
+  TermsRoute: TermsRoute,
+  ProductSlugRoute: ProductSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
