@@ -26,7 +26,8 @@ export function Wordmark({ light = false }: { light?: boolean }) {
 
 const nav = [
   { to: "/diwali-hampers", label: campaign.navLabel },
-  { to: "/candles", label: "Luxury Candles" },
+  { to: "/candles", label: "Jar Candles" },
+  { to: "/sculptural-candles", label: "Sculptural Candles" },
   { to: "/gifts", label: "Gifts" },
   { to: "/our-story", label: "Our Story" },
   { to: "/contact", label: "Contact" },
@@ -70,7 +71,7 @@ export function Header() {
 
 export function Footer() {
   const cols = [
-    { h: "Shop", l: [["/diwali-hampers", "Diwali Hampers"], ["/candles", "Luxury Candles"], ["/gifts", "Gifts"]] },
+    { h: "Shop", l: [["/diwali-hampers", "Diwali Hampers"], ["/candles", "Jar Candles"], ["/sculptural-candles", "Sculptural Candles"], ["/gifts", "Gifts"]] },
     { h: "House", l: [["/our-story", "Our Story"], ["/contact", "Contact"], ["/candle-safety", "Candle Safety"]] },
     { h: "Information", l: [["/shipping-returns", "Shipping & Returns"], ["/privacy", "Privacy"], ["/terms", "Terms"]] },
   ] as const;
@@ -121,6 +122,11 @@ export function ProductVisual({ p, large = false }: { p: Product; large?: boolea
             <span className="font-display text-[0.65rem] tracking-[0.25em] text-espresso">EMBEROVIA</span>
           </div>
         </div>
+      ) : p.category === "sculptural" ? (
+        <div className="relative flex flex-col items-center gap-4 text-center">
+          <Flame className={`${large ? "h-24 w-16" : "h-16 w-12"} text-gold`} />
+          <span className="max-w-44 font-display text-xl leading-tight text-espresso">Hand-moulded candle concept</span>
+        </div>
       ) : (
         <div className={`relative ${large ? "h-48 w-60" : "h-32 w-40"} border border-gold bg-ivory/90 shadow-xl`}>
           <div className="absolute inset-y-0 left-1/2 w-3 -translate-x-1/2 bg-gold/80" />
@@ -128,7 +134,7 @@ export function ProductVisual({ p, large = false }: { p: Product; large?: boolea
           <Flame className="absolute -top-8 left-1/2 h-8 w-6 -translate-x-1/2 animate-flicker text-gold" />
         </div>
       )}
-      <span className={`absolute bottom-3 left-3 text-[0.6rem] uppercase tracking-[0.2em] ${dark ? "text-champagne" : "text-mocha"}`}>Illustration · photo to come</span>
+      <span className={`absolute bottom-3 left-3 text-[0.6rem] uppercase tracking-[0.2em] ${dark ? "text-champagne" : "text-mocha"}`}>Concept illustration · not actual product</span>
     </div>
   );
 }
@@ -148,7 +154,7 @@ export function ProductCard({ p }: { p: Product }) {
         <div className="relative transition-transform duration-500 group-hover:-translate-y-1"><ProductVisual p={p} /><div className="absolute left-3 top-3"><StatusBadge p={p} /></div></div>
         <h3 className="mt-4 text-2xl">{p.name}</h3>
         <p className="text-sm text-muted-foreground">{p.tagline}</p>
-        <p className="mt-1 text-sm">{formatAUD(p.price)} <span className="text-xs text-muted-foreground">(suggested)</span></p>
+        <p className="mt-1 text-sm">{p.price > 0 ? formatAUD(p.price) : "Price to be confirmed"} {p.price > 0 && <span className="text-xs text-muted-foreground">(suggested)</span>}</p>
       </Link>
     </article>
   );
