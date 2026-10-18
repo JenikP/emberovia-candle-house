@@ -18,7 +18,7 @@ export function Flame({ className = "h-5 w-5" }: { className?: string }) {
 export function Wordmark({ light = false }: { light?: boolean }) {
   const [imageFailed, setImageFailed] = useState(false);
   if (!imageFailed) {
-    return <img src="https://emberovia-candles-gifting.modestring1.chatgpt.site/assets/logo-2-original.png" onError={() => setImageFailed(true)}
+    return <img src="/emberovia/logo-2-original.png" onError={() => setImageFailed(true)}
       alt="EMBEROVIA Luxury Candles" className="h-12 w-auto max-w-[195px] object-contain" />;
   }
   return (
@@ -133,7 +133,7 @@ export function ProductVisual({ p, large = false }: { p: Product; large?: boolea
   return (
     <div className={`relative grid aspect-[4/5] place-items-center overflow-hidden bg-gradient-to-b ${toneBg[p.tone]}`}>
       {filename && !imageFailed ? (
-        <img src={`https://emberovia-candles-gifting.modestring1.chatgpt.site/assets/${filename}`} alt={`Illustrative concept for ${p.name}, not a photograph of current stock`}
+        <img src={`/emberovia/${filename}`} alt={`Illustrative concept for ${p.name}, not a photograph of current stock`}
           onError={() => setImageFailed(true)} loading={large ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover" />
       ) : (
         <div className="relative flex flex-col items-center gap-4 text-center">
