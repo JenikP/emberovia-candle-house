@@ -30,12 +30,12 @@ function Page() {
       <ProductVisual p={p} large />
       <div>
         <nav aria-label="Breadcrumb" className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-          <Link to={p.category === "hamper" ? "/diwali-hampers" : "/candles"}>{p.category === "hamper" ? "Diwali Hampers" : "Luxury Candles"}</Link> / {p.name}
+          <Link to={p.category === "hamper" ? "/diwali-hampers" : p.category === "sculptural" ? "/sculptural-candles" : "/candles"}>{p.category === "hamper" ? "Diwali Hampers" : p.category === "sculptural" ? "Sculptural Candles" : "Luxury Candles"}</Link> / {p.name}
         </nav>
         <div className="mt-4"><StatusBadge p={p} /></div>
         <h1 className="mt-3 text-5xl">{p.name}</h1>
         <p className="mt-1 text-muted-foreground">{p.tagline}</p>
-        <p className="mt-4 text-2xl">{formatAUD(p.price)} <span className="text-sm text-muted-foreground">AUD · suggested, not final</span></p>
+        <p className="mt-4 text-2xl">{p.price > 0 ? formatAUD(p.price) : "Price to be confirmed"} {p.price > 0 && <span className="text-sm text-muted-foreground">AUD · suggested, not final</span>}</p>
         <p className="mt-6 leading-relaxed">{p.description}</p>
         {p.notes && (
           <dl className="mt-6 grid grid-cols-3 border-y py-4 text-center">
@@ -57,7 +57,7 @@ function Page() {
         ) : (
           <div className="mt-8 border border-gold bg-card p-5">
             <p className="font-medium">Coming soon — enquire to register interest</p>
-            <p className="mt-2 text-sm text-muted-foreground">This hamper cannot be ordered yet, pending supplier food safety and compliance confirmation.</p>
+            <p className="mt-2 text-sm text-muted-foreground">{p.category === "hamper" ? "This hamper cannot be ordered yet, pending final contents, supplier food safety and compliance confirmation." : "This design is still being developed and is not available for purchase yet."}</p>
             <Link to="/contact" className="btn-primary mt-4">Enquire</Link>
           </div>
         )}
