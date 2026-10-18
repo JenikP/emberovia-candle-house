@@ -2,7 +2,7 @@
 // ALL products, prices and descriptions are ILLUSTRATIVE / SUGGESTED, not final.
 // Fields marked "TO BE CONFIRMED" must be completed before launch.
 
-export type Category = "hamper" | "candle";
+export type Category = "hamper" | "candle" | "sculptural";
 
 export interface Product {
   slug: string;
@@ -54,7 +54,7 @@ export const products: Product[] = [
       "A graceful introduction to the festival of lights — two handmade candles paired with assorted Indian sweets, wrapped in our ivory-and-gold packaging.",
     includes: [
       "2 handmade candles",
-      "Assorted Indian sweets (from an external sweet-shop supplier)",
+      "Traditional Indian sweets, such as kaju katli (supplier and selection to be confirmed)",
       "Greeting card",
       "Ivory-gold gift packaging",
     ],
@@ -75,8 +75,8 @@ export const products: Product[] = [
       "A lavish keepsake for those dearest to you — candles, dry fruits, sweets and a decorative battery-operated LED diya, presented in a premium box.",
     includes: [
       "Handmade luxury candles",
-      "Assorted dry fruits",
-      "Indian sweets sourced from a sweet shop",
+      "Premium dry fruits (selection to be confirmed)",
+      "Traditional Indian mithai sourced from a sweet shop (selection to be confirmed)",
       "Decorative battery LED diya (flame-free)",
       "Personalised greeting card",
       "Premium gift box",
@@ -143,6 +143,50 @@ export const products: Product[] = [
     orderable: true,
     status: "demo",
     featured: true,
+  },
+  {
+    slug: "modak-sculptural-candle",
+    name: "Modak Sculptural Candle",
+    category: "sculptural",
+    price: 0,
+    tagline: "A festive hand-moulded keepsake",
+    description: "A proposed hand-moulded modak-shaped candle for gifting and Diwali celebrations. Final colour, fragrance, size and price are being developed.",
+    tone: "gold",
+    orderable: false,
+    status: "coming-soon",
+  },
+  {
+    slug: "laddu-sculptural-candle",
+    name: "Laddu Sculptural Candle",
+    category: "sculptural",
+    price: 0,
+    tagline: "Inspired by festive Indian sweets",
+    description: "A proposed laddu-shaped decorative candle, handmade in small batches. This is a candle, not edible. Final details to be confirmed.",
+    tone: "ivory",
+    orderable: false,
+    status: "coming-soon",
+  },
+  {
+    slug: "rose-sculptural-candle",
+    name: "Rose Sculptural Candle",
+    category: "sculptural",
+    price: 0,
+    tagline: "Petal-shaped handmade artistry",
+    description: "A proposed rose-shaped moulded candle for year-round gifting. Colour, fragrance, size and price are still being finalised.",
+    tone: "rose",
+    orderable: false,
+    status: "coming-soon",
+  },
+  {
+    slug: "christmas-sculptural-candles",
+    name: "Christmas Sculptural Candles",
+    category: "sculptural",
+    price: 0,
+    tagline: "Christmas trees and Santa designs",
+    description: "A planned seasonal selection of Christmas-tree and Santa-shaped candles. Designs and availability will be confirmed closer to Christmas.",
+    tone: "moon",
+    orderable: false,
+    status: "coming-soon",
   },
 ];
 
