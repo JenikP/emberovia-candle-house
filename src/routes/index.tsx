@@ -11,6 +11,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   const hampers = products.filter((p) => p.seasonal === campaign.key && p.featured);
   const candles = products.filter((p) => p.category === "candle");
+  const sculptural = products.filter((p) => p.category === "sculptural");
   return (
     <>
       <section className="relative overflow-hidden bg-ember px-4 py-24 text-center text-ivory md:py-36">
@@ -34,6 +35,16 @@ function Index() {
           <div className="text-center"><p className="eyebrow">Signature range</p><h2 className="mt-3 text-4xl md:text-5xl">Luxury Candles</h2></div>
           <div className="mt-12 grid grid-cols-2 gap-6 lg:grid-cols-4">{candles.map((p) => <ProductCard key={p.slug} p={p} />)}</div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-20 md:px-8">
+        <div className="text-center">
+          <p className="eyebrow">Beyond the jar · Coming soon</p>
+          <h2 className="mt-3 text-4xl md:text-5xl">Handcrafted Sculptural Candles</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">Modak, laddu and rose-shaped candles, plus Christmas-tree and Santa-inspired seasonal designs. All are planned creations, not yet available to order.</p>
+        </div>
+        <div className="mt-12 grid grid-cols-2 gap-6 lg:grid-cols-4">{sculptural.map((p) => <ProductCard key={p.slug} p={p} />)}</div>
+        <div className="mt-10 text-center"><Link to="/sculptural-candles" className="btn-outline">Explore sculptural candles</Link></div>
       </section>
 
       <section className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 md:grid-cols-2 md:px-8">
