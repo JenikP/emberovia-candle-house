@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CandleSafetyRouteImport } from './routes/candle-safety'
 import { Route as CandlesRouteImport } from './routes/candles'
+import { Route as SculpturalCandlesRouteImport } from './routes/sculptural-candles'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -37,6 +38,11 @@ const CandleSafetyRoute = CandleSafetyRouteImport.update({
 const CandlesRoute = CandlesRouteImport.update({
   id: '/candles',
   path: '/candles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SculpturalCandlesRoute = SculpturalCandlesRouteImport.update({
+  id: '/sculptural-candles',
+  path: '/sculptural-candles',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartRoute = CartRouteImport.update({
@@ -99,6 +105,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/candle-safety': typeof CandleSafetyRoute
   '/candles': typeof CandlesRoute
+  '/sculptural-candles': typeof SculpturalCandlesRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
@@ -115,6 +122,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/candle-safety': typeof CandleSafetyRoute
   '/candles': typeof CandlesRoute
+  '/sculptural-candles': typeof SculpturalCandlesRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
@@ -132,6 +140,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/candle-safety': typeof CandleSafetyRoute
   '/candles': typeof CandlesRoute
+  '/sculptural-candles': typeof SculpturalCandlesRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
@@ -150,6 +159,7 @@ export interface FileRouteTypes {
     | '/'
     | '/candle-safety'
     | '/candles'
+    | '/sculptural-candles'
     | '/cart'
     | '/checkout'
     | '/contact'
@@ -166,6 +176,7 @@ export interface FileRouteTypes {
     | '/'
     | '/candle-safety'
     | '/candles'
+    | '/sculptural-candles'
     | '/cart'
     | '/checkout'
     | '/contact'
@@ -182,6 +193,7 @@ export interface FileRouteTypes {
     | '/'
     | '/candle-safety'
     | '/candles'
+    | '/sculptural-candles'
     | '/cart'
     | '/checkout'
     | '/contact'
@@ -199,6 +211,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CandleSafetyRoute: typeof CandleSafetyRoute
   CandlesRoute: typeof CandlesRoute
+  SculpturalCandlesRoute: typeof SculpturalCandlesRoute
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
@@ -233,6 +246,13 @@ declare module '@tanstack/react-router' {
       path: '/candles'
       fullPath: '/candles'
       preLoaderRoute: typeof CandlesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sculptural-candles': {
+      id: '/sculptural-candles'
+      path: '/sculptural-candles'
+      fullPath: '/sculptural-candles'
+      preLoaderRoute: typeof SculpturalCandlesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cart': {
@@ -319,6 +339,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CandleSafetyRoute: CandleSafetyRoute,
   CandlesRoute: CandlesRoute,
+  SculpturalCandlesRoute: SculpturalCandlesRoute,
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
