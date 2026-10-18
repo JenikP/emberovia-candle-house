@@ -16,6 +16,11 @@ export function Flame({ className = "h-5 w-5" }: { className?: string }) {
 
 /** Editable text wordmark — replace with final logo artwork later. */
 export function Wordmark({ light = false }: { light?: boolean }) {
+  const [imageFailed, setImageFailed] = useState(false);
+  if (!imageFailed) {
+    return <img src="https://emberovia-candles-gifting.modestring1.chatgpt.site/assets/logo-2-original.png" onError={() => setImageFailed(true)}
+      alt="EMBEROVIA Luxury Candles" className="h-12 w-auto max-w-[195px] object-contain" />;
+  }
   return (
     <span className={`inline-flex items-center gap-2 ${light ? "text-ivory" : "text-espresso"}`}>
       <Flame className="h-5 w-4 text-gold" />
@@ -108,33 +113,37 @@ const toneBg: Record<Product["tone"], string> = {
   royal: "from-mocha to-espresso",
 };
 
-/** Designed placeholder visual — clearly not a product photograph. */
+/** Concept imagery from the owner's Emberovia Sites export, with the original Lovable visual as fallback. */
+const productImageFiles: Record<string, string> = {
+  "classic-diwali-hamper": "classic-v2.webp",
+  "royal-diwali-hamper": "royal-v2.webp",
+  "velvet-ember": "candle0-v2.webp",
+  "ivory-bloom": "candle1-v2.webp",
+  "moon-veil": "candle2.webp",
+  "golden-aura": "candle3-v2.webp",
+  "modak-sculptural-candle": "sculpture0.webp",
+  "laddu-sculptural-candle": "sculpture1.webp",
+  "rose-sculptural-candle": "sculpture2.webp",
+  "christmas-sculptural-candles": "sculpture3.webp",
+};
 export function ProductVisual({ p, large = false }: { p: Product; large?: boolean }) {
+  const [imageFailed, setImageFailed] = useState(false);
+  const filename = productImageFiles[p.slug];
   const dark = p.tone === "rose" || p.tone === "royal";
   return (
-    <div className={`relative grid aspect-[4/5] place-items-center overflow-hidden bg-gradient-to-b ${toneBg[p.tone]}`} role="img" aria-label={`Illustrative placeholder for ${p.name}`}>
-      <div className="absolute inset-0 bg-glow opacity-60" />
-      {p.category === "candle" ? (
-        <div className="relative flex flex-col items-center">
-          <Flame className={`${large ? "h-14 w-10" : "h-10 w-7"} animate-flicker text-gold`} />
-          <div className="h-3 w-0.5 bg-espresso" />
-          <div className={`${large ? "h-44 w-36" : "h-28 w-24"} rounded-t-sm border border-gold/60 bg-ivory/90 shadow-xl grid place-items-center`}>
-            <span className="font-display text-[0.65rem] tracking-[0.25em] text-espresso">EMBEROVIA</span>
-          </div>
-        </div>
-      ) : p.category === "sculptural" ? (
-        <div className="relative flex flex-col items-center gap-4 text-center">
-          <Flame className={`${large ? "h-24 w-16" : "h-16 w-12"} text-gold`} />
-          <span className="max-w-44 font-display text-xl leading-tight text-espresso">Hand-moulded candle concept</span>
-        </div>
+    <div className={`relative grid aspect-[4/5] place-items-center overflow-hidden bg-gradient-to-b ${toneBg[p.tone]}`}>
+      {filename && !imageFailed ? (
+        <img src={`https://emberovia-candles-gifting.modestring1.chatgpt.site/assets/${filename}`} alt={`Illustrative concept for ${p.name}, not a photograph of current stock`}
+          onError={() => setImageFailed(true)} loading={large ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover" />
       ) : (
-        <div className={`relative ${large ? "h-48 w-60" : "h-32 w-40"} border border-gold bg-ivory/90 shadow-xl`}>
-          <div className="absolute inset-y-0 left-1/2 w-3 -translate-x-1/2 bg-gold/80" />
-          <div className="absolute inset-x-0 top-1/3 h-3 bg-gold/80" />
-          <Flame className="absolute -top-8 left-1/2 h-8 w-6 -translate-x-1/2 animate-flicker text-gold" />
+        <div className="relative flex flex-col items-center gap-4 text-center">
+          <Flame className={`${large ? "h-24 w-16" : "h-16 w-12"} animate-flicker text-gold`} />
+          <span className={`max-w-44 font-display text-lg leading-tight ${dark ? "text-champagne" : "text-espresso"}`}>{p.name}</span>
         </div>
       )}
-      <span className={`absolute bottom-3 left-3 text-[0.6rem] uppercase tracking-[0.2em] ${dark ? "text-champagne" : "text-mocha"}`}>Concept illustration · not actual product</span>
+      <span className="absolute bottom-2 left-2 right-2 bg-espresso/80 px-2 py-1 text-[0.62rem] text-ivory">
+        Concept image only — actual product and contents may vary
+      </span>
     </div>
   );
 }
