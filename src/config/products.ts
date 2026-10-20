@@ -98,8 +98,8 @@ export const products: Product[] = [
     notes: { top: "Saffron", heart: "Rose", base: "Oud" },
     size: "220g (proposed)",
     tone: "rose",
-    orderable: false,
-    status: "coming-soon",
+    orderable: true,
+    status: "demo",
     featured: true,
   },
   {
@@ -112,8 +112,8 @@ export const products: Product[] = [
     notes: { top: "Peony", heart: "Vanilla", base: "Amber" },
     size: "220g (proposed)",
     tone: "ivory",
-    orderable: false,
-    status: "coming-soon",
+    orderable: true,
+    status: "demo",
     featured: true,
   },
   {
@@ -126,8 +126,8 @@ export const products: Product[] = [
     notes: { top: "Jasmine", heart: "Musk", base: "Sandalwood" },
     size: "220g (proposed)",
     tone: "moon",
-    orderable: false,
-    status: "coming-soon",
+    orderable: true,
+    status: "demo",
     featured: true,
   },
   {
@@ -140,8 +140,8 @@ export const products: Product[] = [
     notes: { top: "Bergamot", heart: "Coconut", base: "Cedar" },
     size: "220g (proposed)",
     tone: "gold",
-    orderable: false,
-    status: "coming-soon",
+    orderable: true,
+    status: "demo",
     featured: true,
   },
   {
