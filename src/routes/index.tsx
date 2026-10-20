@@ -29,9 +29,15 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-20 md:px-8">
-        <div className="text-center"><p className="eyebrow">Featured hampers</p><h2 className="mt-3 text-4xl md:text-5xl">Gifts of Light</h2></div>
-        <div className="mx-auto mt-12 grid max-w-4xl gap-10 sm:grid-cols-2">{hampers.map((p) => <ProductCard key={p.slug} p={p} />)}</div>
+      <section className="mx-auto max-w-7xl px-4 py-24 md:px-8 md:py-32" aria-labelledby="featured-hampers-title">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="eyebrow">Featured Diwali hampers</p>
+          <h2 id="featured-hampers-title" className="mt-4 text-4xl md:text-6xl">The Art of Festive Gifting</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">Two thoughtfully curated ways to share warmth, light and celebration.</p>
+        </div>
+        <div className="mx-auto mt-14 grid max-w-6xl items-start gap-10 md:mt-16 md:grid-cols-2 md:gap-14">
+          {hampers.map((p) => <ProductCard key={p.slug} p={p} />)}
+        </div>
       </section>
 
       <section className="bg-muted px-4 py-20 md:px-8">
