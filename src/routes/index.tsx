@@ -14,26 +14,20 @@ function Index() {
   const sculptural = products.filter((p) => p.category === "sculptural");
   return (
     <>
-      <section className="relative overflow-hidden bg-ember text-ivory">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 md:grid-cols-2 md:gap-14 md:px-8 md:py-24">
-          <div className="text-center md:text-left">
-            <Flame className="mx-auto h-12 w-9 animate-flicker text-gold md:mx-0" />
-            <p className="eyebrow mt-5">{campaign.eyebrow}</p>
-            <h1 className="mt-4 text-4xl leading-tight sm:text-5xl lg:text-6xl">{campaign.title}</h1>
-            <p className="mt-6 max-w-xl text-champagne md:text-lg">{campaign.copy}</p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
-              <Link to={campaign.primaryCta.to} className="btn-gold">{campaign.primaryCta.label}</Link>
-              <Link to={campaign.secondaryCta.to} className="btn-outline text-ivory">{campaign.secondaryCta.label}</Link>
-            </div>
-            <p className="mt-5 text-xs text-champagne/80">Preview store — hampers coming soon, prices indicative.</p>
+      <section className="relative isolate overflow-hidden bg-ember px-4 py-24 text-center text-ivory md:py-36">
+        <img src="/royal-v2.webp" alt="" aria-hidden="true" fetchPriority="high" loading="eager" decoding="async"
+          className="pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover object-[65%_center] opacity-95" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-ember/95 via-ember/75 to-ember/20" />
+        <div className="mx-auto max-w-4xl rounded-lg bg-espresso/30 px-4 py-6 backdrop-blur-[1px] sm:px-8">
+          <Flame className="mx-auto h-16 w-12 animate-flicker text-gold" />
+          <p className="eyebrow mt-6">{campaign.eyebrow}</p>
+          <h1 className="mx-auto mt-4 max-w-4xl text-5xl leading-tight md:text-7xl">{campaign.title}</h1>
+          <p className="mx-auto mt-6 max-w-2xl text-champagne md:text-lg">{campaign.copy}</p>
+          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link to={campaign.primaryCta.to} className="btn-gold">{campaign.primaryCta.label}</Link>
+            <Link to={campaign.secondaryCta.to} className="btn-outline text-ivory">{campaign.secondaryCta.label}</Link>
           </div>
-          <figure className="relative">
-            <div className="absolute -inset-6 rounded-full bg-gold/15 blur-3xl" aria-hidden="true" />
-            <img src="/royal-v2.webp" alt="Royal Diwali Hamper concept: candles, mithai, dry fruits and an LED diya in a gift box" width={1536} height={1024}
-              loading="eager" fetchPriority="high" decoding="async" sizes="(min-width: 768px) 50vw, 100vw"
-              className="relative aspect-[3/2] w-full rounded-sm object-cover shadow-2xl ring-1 ring-gold/30" />
-            <figcaption className="relative mt-2 text-right text-[0.65rem] text-champagne/70">Concept image — final contents may vary</figcaption>
-          </figure>
+          <p className="mt-5 text-xs text-champagne">Preview store · Concept hamper image · Prices indicative</p>
         </div>
       </section>
 
