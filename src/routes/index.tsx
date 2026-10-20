@@ -4,7 +4,7 @@ import { products } from "@/config/products";
 import { Flame, ProductCard, meta } from "@/components/site";
 
 export const Route = createFileRoute("/")({
-  head: () => meta("Handmade Luxury Candles & Diwali Hampers, Melbourne", "Celebrate Diwali with the gift of light — handcrafted luxury candles and curated gift hampers from Melbourne."),
+  head: () => ({ ...meta("Handmade Luxury Candles & Diwali Hampers, Melbourne", "Celebrate Diwali with the gift of light — handcrafted luxury candles and curated gift hampers from Melbourne."), links: [{ rel: "preload", as: "image", href: "/royal-v2.webp" }] }),
   component: Index,
 });
 
@@ -14,36 +14,45 @@ function Index() {
   const sculptural = products.filter((p) => p.category === "sculptural");
   return (
     <>
-      <section className="relative overflow-hidden bg-ember px-4 py-24 text-center text-ivory md:py-36">
-        <img src="/hero.webp" alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ember/75" />
-        <div className="relative">
-        <Flame className="mx-auto h-16 w-12 animate-flicker text-gold" />
-        <p className="eyebrow mt-6">{campaign.eyebrow}</p>
-        <h1 className="mx-auto mt-4 max-w-4xl text-5xl leading-tight md:text-7xl">{campaign.title}</h1>
-        <p className="mx-auto mt-6 max-w-2xl text-champagne md:text-lg">{campaign.copy}</p>
-        <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-          <Link to={campaign.primaryCta.to} className="btn-gold">{campaign.primaryCta.label}</Link>
-          <Link to={campaign.secondaryCta.to} className="btn-outline text-ivory">{campaign.secondaryCta.label}</Link>
-        </div>
+      <section className="relative overflow-hidden bg-ember text-ivory">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 md:grid-cols-2 md:gap-14 md:px-8 md:py-24">
+          <div className="text-center md:text-left">
+            <Flame className="mx-auto h-12 w-9 animate-flicker text-gold md:mx-0" />
+            <p className="eyebrow mt-5">{campaign.eyebrow}</p>
+            <h1 className="mt-4 text-4xl leading-tight sm:text-5xl lg:text-6xl">{campaign.title}</h1>
+            <p className="mt-6 max-w-xl text-champagne md:text-lg">{campaign.copy}</p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
+              <Link to={campaign.primaryCta.to} className="btn-gold">{campaign.primaryCta.label}</Link>
+              <Link to={campaign.secondaryCta.to} className="btn-outline text-ivory">{campaign.secondaryCta.label}</Link>
+            </div>
+            <p className="mt-5 text-xs text-champagne/80">Preview store — hampers coming soon, prices indicative.</p>
+          </div>
+          <figure className="relative">
+            <div className="absolute -inset-6 rounded-full bg-gold/15 blur-3xl" aria-hidden="true" />
+            <img src="/royal-v2.webp" alt="Royal Diwali Hamper concept: candles, mithai, dry fruits and an LED diya in a gift box" width={1536} height={1024}
+              loading="eager" fetchPriority="high" decoding="async" sizes="(min-width: 768px) 50vw, 100vw"
+              className="relative aspect-[3/2] w-full rounded-sm object-cover shadow-2xl ring-1 ring-gold/30" />
+            <figcaption className="relative mt-2 text-right text-[0.65rem] text-champagne/70">Concept image — final contents may vary</figcaption>
+          </figure>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-20 md:px-8">
         <div className="text-center"><p className="eyebrow">Featured hampers</p><h2 className="mt-3 text-4xl md:text-5xl">Gifts of Light</h2></div>
-        <div className="mx-auto mt-12 grid max-w-4xl gap-10 sm:grid-cols-2">{hampers.map((p) => <ProductCard key={p.slug} p={p} />)}</div>
+        <div className="mx-auto mt-12 grid max-w-4xl gap-10 sm:grid-cols-2">{hampers.map((p) => <ProductCard key={p.slug} p={p} eager />)}</div>
       </section>
 
       <section className="bg-muted px-4 py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="text-center"><p className="eyebrow">Signature range</p><h2 className="mt-3 text-4xl md:text-5xl">Luxury Candles</h2></div>
+          <div className="text-center"><p className="eyebrow">Signature range</p><h2 className="mt-3 text-4xl md:text-5xl">Luxury Jar Candles</h2><p className="mx-auto mt-4 max-w-2xl text-muted-foreground">Hand-poured 220g jar candles with layered fragrance notes. Prices shown are indicative only.</p></div>
           <div className="mt-12 grid grid-cols-2 gap-6 lg:grid-cols-4">{candles.map((p) => <ProductCard key={p.slug} p={p} />)}</div>
+          <div className="mt-10 text-center"><Link to="/candles" className="btn-outline">Explore Luxury Jar Candles</Link></div>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-20 md:px-8">
         <div className="text-center">
-          <p className="eyebrow">Beyond the jar · Coming soon</p>
+          <p className="eyebrow">A separate range · Beyond the jar · Coming soon</p>
           <h2 className="mt-3 text-4xl md:text-5xl">Handcrafted Sculptural Candles</h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">Modak, laddu and rose-shaped candles, plus Christmas-tree and Santa-inspired seasonal designs. All are planned creations, not yet available to order.</p>
         </div>

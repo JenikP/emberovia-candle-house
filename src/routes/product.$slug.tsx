@@ -1,3 +1,4 @@
+import { store } from "@/config/store";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { getProduct, formatAUD } from "@/config/products";
@@ -30,7 +31,7 @@ function Page() {
       <ProductVisual p={p} large />
       <div>
         <nav aria-label="Breadcrumb" className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-          <Link to={p.category === "hamper" ? "/diwali-hampers" : p.category === "sculptural" ? "/sculptural-candles" : "/candles"}>{p.category === "hamper" ? "Diwali Hampers" : p.category === "sculptural" ? "Sculptural Candles" : "Luxury Candles"}</Link> / {p.name}
+          <Link to={p.category === "hamper" ? "/diwali-hampers" : p.category === "sculptural" ? "/sculptural-candles" : "/candles"}>{p.category === "hamper" ? "Diwali Hampers" : p.category === "sculptural" ? "Sculptural Candles" : "Luxury Jar Candles"}</Link> / {p.name}
         </nav>
         <div className="mt-4"><StatusBadge p={p} /></div>
         <h1 className="mt-3 text-5xl">{p.name}</h1>
@@ -56,9 +57,13 @@ function Page() {
           </div>
         ) : (
           <div className="mt-8 border border-gold bg-card p-5">
-            <p className="font-medium">Coming soon — enquire to register interest</p>
+            <p className="font-medium">Coming soon — not yet available to order</p>
             <p className="mt-2 text-sm text-muted-foreground">{p.category === "hamper" ? "This hamper cannot be ordered yet, pending final contents, supplier food safety and compliance confirmation." : "This design is still being developed and is not available for purchase yet."}</p>
-            <Link to="/contact" className="btn-primary mt-4">Enquire</Link>
+            {store.contactEmail.startsWith("[") ? (
+              <p className="mt-3 text-sm">Online enquiries open once official contact details are published. <Link to="/contact" className="underline">Contact page</Link></p>
+            ) : (
+              <a href={`mailto:${store.contactEmail}?subject=${encodeURIComponent(`Enquiry: ${p.name}`)}`} className="btn-primary mt-4">Enquire by email</a>
+            )}
           </div>
         )}
 
