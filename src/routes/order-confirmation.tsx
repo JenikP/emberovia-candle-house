@@ -24,10 +24,10 @@ function Page() {
         <strong>Do not make a payment.</strong> This is a demonstration. No order has been created, and the business PayID has not been provided yet.
       </div>
       <dl className="mt-8 divide-y border-y text-sm">
-        <div className="flex justify-between py-3"><dt>Status</dt><dd>Pending payment verification</dd></div>
+        <div className="flex justify-between py-3"><dt>Status</dt><dd>Demo only — no order exists</dd></div>
         <div className="flex justify-between py-3"><dt>Order reference</dt><dd className="font-mono">{ref || "—"} <span className="text-xs text-muted-foreground">(demo, not unique)</span></dd></div>
-        <div className="flex justify-between py-3"><dt>Amount due (excl. delivery)</dt><dd>{formatAUD(amount)}</dd></div>
-        <div className="flex justify-between gap-4 py-3"><dt>Pay to PayID</dt><dd className="text-right font-semibold">{store.payId}</dd></div>
+        <div className="flex justify-between py-3"><dt>Illustrative subtotal (excl. delivery)</dt><dd>{formatAUD(amount)}</dd></div>
+        <div className="flex justify-between gap-4 py-3"><dt>Pay to PayID</dt><dd className="text-right font-semibold">Not configured — do not transfer funds</dd></div>
       </dl>
       <h2 className="mt-10 text-3xl">How PayID payment will work</h2>
       <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-relaxed">
