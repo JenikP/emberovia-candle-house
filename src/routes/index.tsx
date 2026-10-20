@@ -16,7 +16,7 @@ function Index() {
     <>
       <section className="relative overflow-hidden bg-ember px-4 py-24 text-center text-ivory md:py-36">
         <img src="/hero.webp" alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ember/60" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ember/75" />
         <div className="relative">
         <Flame className="mx-auto h-16 w-12 animate-flicker text-gold" />
         <p className="eyebrow mt-6">{campaign.eyebrow}</p>
