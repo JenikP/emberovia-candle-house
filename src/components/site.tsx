@@ -18,8 +18,8 @@ export function Flame({ className = "h-5 w-5" }: { className?: string }) {
 export function Wordmark({ light = false }: { light?: boolean }) {
   const [imageFailed, setImageFailed] = useState(false);
   if (!imageFailed) {
-    return <img src="/logo-2-original.png" onError={() => setImageFailed(true)}
-      alt="EMBEROVIA Luxury Candles" className="h-12 w-auto max-w-[195px] object-contain" />;
+    return <img src="/logo-wordmark.png" onError={() => setImageFailed(true)} width={640} height={161}
+      alt="EMBEROVIA Luxury Candles" className={`w-auto object-contain ${light ? "h-12 md:h-14 brightness-125" : "h-10 md:h-12"}`} />;
   }
   return (
     <span className={`inline-flex items-center gap-2 ${light ? "text-ivory" : "text-espresso"}`}>
@@ -127,23 +127,26 @@ const productImageFiles: Record<string, string> = {
   "christmas-sculptural-candles": "sculpture3.webp",
   "santa-claus-candle": "sculpture4.webp",
 };
-export function ProductVisual({ p, large = false }: { p: Product; large?: boolean }) {
+export function ProductVisual({ p, large = false, eager = false }: { p: Product; large?: boolean; eager?: boolean }) {
   const [imageFailed, setImageFailed] = useState(false);
   const filename = productImageFiles[p.slug];
   const dark = p.tone === "rose" || p.tone === "royal";
+  const isHamper = p.category === "hamper";
   return (
-    <div className={`relative grid aspect-[4/5] place-items-center overflow-hidden bg-gradient-to-b ${toneBg[p.tone]}`}>
+    <div className={`relative grid ${isHamper ? "aspect-[3/2]" : "aspect-[4/5]"} place-items-center overflow-hidden bg-gradient-to-b ${toneBg[p.tone]}`}>
       {filename && !imageFailed ? (
         <img src={`/${filename}`} alt={`Illustrative concept for ${p.name}, not a photograph of current stock`}
-          onError={() => setImageFailed(true)} loading={large ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover" />
+          onError={() => setImageFailed(true)} loading={large || eager ? "eager" : "lazy"} decoding="async" fetchPriority={large || eager ? "high" : "auto"}
+          sizes={large ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"}
+          className="absolute inset-0 h-full w-full object-cover" />
       ) : (
         <div className="relative flex flex-col items-center gap-4 text-center">
           <Flame className={`${large ? "h-24 w-16" : "h-16 w-12"} animate-flicker text-gold`} />
           <span className={`max-w-44 font-display text-lg leading-tight ${dark ? "text-champagne" : "text-espresso"}`}>{p.name}</span>
         </div>
       )}
-      <span className="absolute bottom-2 left-2 right-2 bg-espresso/80 px-2 py-1 text-[0.62rem] text-ivory">
-        Concept image only — actual product and contents may vary
+      <span className="absolute bottom-2 right-2 bg-espresso/70 px-2 py-0.5 text-[0.6rem] text-ivory">
+        Concept image
       </span>
     </div>
   );
@@ -152,19 +155,19 @@ export function ProductVisual({ p, large = false }: { p: Product; large?: boolea
 export function StatusBadge({ p }: { p: Product }) {
   return (
     <span className="inline-block bg-espresso px-2 py-1 text-[0.6rem] uppercase tracking-[0.2em] text-champagne">
-      {p.status === "coming-soon" ? "Coming soon · Enquire" : "Demo · Suggested price"}
+      {p.status === "coming-soon" ? "Coming soon" : "Demo · Indicative price"}
     </span>
   );
 }
 
-export function ProductCard({ p }: { p: Product }) {
+export function ProductCard({ p, eager = false }: { p: Product; eager?: boolean }) {
   return (
     <article className="group">
       <Link to="/product/$slug" params={{ slug: p.slug }} className="block">
-        <div className="relative transition-transform duration-500 group-hover:-translate-y-1"><ProductVisual p={p} /><div className="absolute left-3 top-3"><StatusBadge p={p} /></div></div>
+        <div className="relative transition-transform duration-500 group-hover:-translate-y-1"><ProductVisual p={p} eager={eager} /><div className="absolute left-3 top-3"><StatusBadge p={p} /></div></div>
         <h3 className="mt-4 text-2xl">{p.name}</h3>
         <p className="text-sm text-muted-foreground">{p.tagline}</p>
-        <p className="mt-1 text-sm">{p.price > 0 ? formatAUD(p.price) : "Price to be confirmed"} {p.price > 0 && <span className="text-xs text-muted-foreground">(suggested)</span>}</p>
+        <p className="mt-1 text-sm">{p.price > 0 ? <>From {formatAUD(p.price)} <span className="text-xs text-muted-foreground">(indicative, not final)</span></> : "Price to be confirmed"}</p>
       </Link>
     </article>
   );

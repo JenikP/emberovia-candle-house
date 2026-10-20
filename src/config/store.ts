@@ -24,6 +24,6 @@ export const campaign = {
   title: "Celebrate Diwali with the Gift of Light",
   copy: "Discover handcrafted luxury candles and thoughtfully curated gift hampers designed to make every celebration unforgettable",
   primaryCta: { label: "Shop Diwali Hampers", to: "/diwali-hampers" as const },
-  secondaryCta: { label: "Explore Luxury Candles", to: "/candles" as const },
+  secondaryCta: { label: "Explore Luxury Jar Candles", to: "/candles" as const },
   navLabel: "Diwali Hampers",
 };
