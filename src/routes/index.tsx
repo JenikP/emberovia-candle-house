@@ -26,6 +26,7 @@ function Index() {
           <Link to={campaign.primaryCta.to} className="btn-gold">{campaign.primaryCta.label}</Link>
           <Link to={campaign.secondaryCta.to} className="btn-outline text-ivory">{campaign.secondaryCta.label}</Link>
         </div>
+        </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-20 md:px-8">
