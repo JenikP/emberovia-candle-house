@@ -15,6 +15,9 @@ function Index() {
   return (
     <>
       <section className="relative overflow-hidden bg-ember px-4 py-24 text-center text-ivory md:py-36">
+        <img src="/hero.webp" alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ember/75" />
+        <div className="relative">
         <Flame className="mx-auto h-16 w-12 animate-flicker text-gold" />
         <p className="eyebrow mt-6">{campaign.eyebrow}</p>
         <h1 className="mx-auto mt-4 max-w-4xl text-5xl leading-tight md:text-7xl">{campaign.title}</h1>
@@ -22,6 +25,7 @@ function Index() {
         <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
           <Link to={campaign.primaryCta.to} className="btn-gold">{campaign.primaryCta.label}</Link>
           <Link to={campaign.secondaryCta.to} className="btn-outline text-ivory">{campaign.secondaryCta.label}</Link>
+        </div>
         </div>
       </section>
 
@@ -48,7 +52,7 @@ function Index() {
       </section>
 
       <section className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 md:grid-cols-2 md:px-8">
-        <div className="grid aspect-square place-items-center bg-ember"><Flame className="h-24 w-16 animate-flicker text-gold" /></div>
+        <div className="relative aspect-square overflow-hidden bg-ember"><img src="/signature.webp" alt="Hand-poured EMBEROVIA candle (illustrative concept)" loading="lazy" className="absolute inset-0 h-full w-full object-cover" /></div>
         <div>
           <p className="eyebrow">Handmade in Melbourne</p>
           <h2 className="mt-3 text-4xl md:text-5xl">Poured by hand, slowly</h2>
