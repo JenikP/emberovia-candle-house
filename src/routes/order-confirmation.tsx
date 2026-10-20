@@ -5,9 +5,9 @@ import { meta } from "@/components/site";
 
 export const Route = createFileRoute("/order-confirmation")({
   validateSearch: (s: Record<string, unknown>) => ({
-    ref: typeof s.ref === "string" ? s.ref.slice(0, 20) : "",
-    total: typeof s.total === "string" ? s.total : "0",
-    method: s.method === "shipping" ? "shipping" : "pickup",
+    ref: typeof s["ref"] === "string" ? s["ref"].slice(0, 20) : "",
+    total: typeof s["total"] === "string" ? s["total"] : "0",
+    method: s["method"] === "shipping" ? "shipping" : "pickup",
   }),
   head: () => ({ ...meta("Demo Order Confirmation", "Preview of the EMBEROVIA PayID payment instructions."), }),
   component: Page,
