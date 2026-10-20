@@ -33,7 +33,7 @@ function Index() {
 
       <section className="mx-auto max-w-7xl px-4 py-20 md:px-8">
         <div className="text-center"><p className="eyebrow">Featured hampers</p><h2 className="mt-3 text-4xl md:text-5xl">Gifts of Light</h2></div>
-        <div className="mx-auto mt-12 grid max-w-4xl gap-10 sm:grid-cols-2">{hampers.map((p) => <ProductCard key={p.slug} p={p} eager />)}</div>
+        <div className="mx-auto mt-12 grid max-w-4xl gap-10 sm:grid-cols-2">{hampers.map((p) => <ProductCard key={p.slug} p={p} />)}</div>
       </section>
 
       <section className="bg-muted px-4 py-20 md:px-8">
@@ -55,7 +55,7 @@ function Index() {
       </section>
 
       <section className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 md:grid-cols-2 md:px-8">
-        <div className="relative aspect-square overflow-hidden bg-ember"><img src="/signature.webp" alt="Hand-poured EMBEROVIA candle (illustrative concept)" loading="lazy" className="absolute inset-0 h-full w-full object-cover" /></div>
+        <div className="relative aspect-square overflow-hidden bg-ember"><img src="/signature.webp" alt="Hand-poured EMBEROVIA candle (illustrative concept)" loading="lazy" decoding="async" width={1024} height={1024} className="absolute inset-0 h-full w-full object-cover" /></div>
         <div>
           <p className="eyebrow">Handmade in Melbourne</p>
           <h2 className="mt-3 text-4xl md:text-5xl">Poured by hand, slowly</h2>
