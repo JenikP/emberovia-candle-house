@@ -125,6 +125,7 @@ const productImageFiles: Record<string, string> = {
   "laddu-sculptural-candle": "sculpture1.webp",
   "rose-sculptural-candle": "sculpture2.webp",
   "christmas-sculptural-candles": "sculpture3.webp",
+  "santa-claus-candle": "sculpture4.webp",
 };
 export function ProductVisual({ p, large = false }: { p: Product; large?: boolean }) {
   const [imageFailed, setImageFailed] = useState(false);
