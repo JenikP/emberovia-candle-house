@@ -94,7 +94,7 @@ export const products: Product[] = [
     category: "candle",
     price: 39.95,
     tagline: "Rose · Oud · Saffron",
-    description: "Velvet Ember is a proposed luxury jar candle with rose, oud and saffron notes. The fragrance blend, specifications and price are subject to confirmation."
+    description: "Velvet Ember is a proposed luxury jar candle with rose, oud and saffron notes. The fragrance blend, specifications and price are subject to confirmation.",
     notes: { top: "Saffron", heart: "Rose", base: "Oud" },
     size: "220g (proposed)",
     tone: "rose",
@@ -108,7 +108,7 @@ export const products: Product[] = [
     category: "candle",
     price: 39.95,
     tagline: "Vanilla · Peony · Amber",
-    description: "Ivory Bloom is a proposed luxury jar candle with vanilla, peony and amber notes. The fragrance blend, specifications and price are subject to confirmation."
+    description: "Ivory Bloom is a proposed luxury jar candle with vanilla, peony and amber notes. The fragrance blend, specifications and price are subject to confirmation.",
     notes: { top: "Peony", heart: "Vanilla", base: "Amber" },
     size: "220g (proposed)",
     tone: "ivory",
@@ -122,7 +122,7 @@ export const products: Product[] = [
     category: "candle",
     price: 42.95,
     tagline: "Jasmine · Musk · Sandalwood",
-    description: "Moon Veil is a proposed luxury jar candle with jasmine, musk and sandalwood notes. The fragrance blend, specifications and price are subject to confirmation."
+    description: "Moon Veil is a proposed luxury jar candle with jasmine, musk and sandalwood notes. The fragrance blend, specifications and price are subject to confirmation.",
     notes: { top: "Jasmine", heart: "Musk", base: "Sandalwood" },
     size: "220g (proposed)",
     tone: "moon",
@@ -136,7 +136,7 @@ export const products: Product[] = [
     category: "candle",
     price: 39.95,
     tagline: "Bergamot · Coconut · Cedar",
-    description: "Golden Aura is a proposed luxury jar candle with bergamot, coconut and cedar notes. The fragrance blend, specifications and price are subject to confirmation."
+    description: "Golden Aura is a proposed luxury jar candle with bergamot, coconut and cedar notes. The fragrance blend, specifications and price are subject to confirmation.",
     notes: { top: "Bergamot", heart: "Coconut", base: "Cedar" },
     size: "220g (proposed)",
     tone: "gold",
