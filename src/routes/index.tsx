@@ -14,20 +14,18 @@ function Index() {
   const sculptural = products.filter((p) => p.category === "sculptural");
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-ember px-4 py-24 text-center text-ivory md:py-36">
-        <img src="/royal-v2.webp" alt="" aria-hidden="true" fetchPriority="high" loading="eager" decoding="async"
-          className="pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover object-[65%_center] opacity-95" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-ember/95 via-ember/75 to-ember/20" />
-        <div className="mx-auto max-w-4xl rounded-lg bg-espresso/30 px-4 py-6 backdrop-blur-[1px] sm:px-8">
-          <Flame className="mx-auto h-16 w-12 animate-flicker text-gold" />
-          <p className="eyebrow mt-6">{campaign.eyebrow}</p>
-          <h1 className="mx-auto mt-4 max-w-4xl text-5xl leading-tight md:text-7xl">{campaign.title}</h1>
-          <p className="mx-auto mt-6 max-w-2xl text-champagne md:text-lg">{campaign.copy}</p>
-          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link to={campaign.primaryCta.to} className="btn-gold">{campaign.primaryCta.label}</Link>
-            <Link to={campaign.secondaryCta.to} className="btn-outline text-ivory">{campaign.secondaryCta.label}</Link>
-          </div>
-          <p className="mt-5 text-xs text-champagne">Preview store · Concept hamper image · Prices indicative</p>
+      <section className="relative overflow-hidden bg-ember px-4 py-24 text-center text-ivory md:py-36">
+        <img src="/hero.webp" alt="" aria-hidden="true" loading="eager" fetchPriority="high" decoding="async" className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-85" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ember/35" />
+        <div className="relative">
+        <Flame className="mx-auto h-16 w-12 animate-flicker text-gold" />
+        <p className="eyebrow mt-6">{campaign.eyebrow}</p>
+        <h1 className="mx-auto mt-4 max-w-4xl text-5xl leading-tight md:text-7xl">{campaign.title}</h1>
+        <p className="mx-auto mt-6 max-w-2xl text-champagne md:text-lg">{campaign.copy}</p>
+        <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+          <Link to={campaign.primaryCta.to} className="btn-gold">{campaign.primaryCta.label}</Link>
+          <Link to={campaign.secondaryCta.to} className="btn-outline text-ivory">{campaign.secondaryCta.label}</Link>
+        </div>
         </div>
       </section>
 
