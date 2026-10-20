@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { getProduct, formatAUD } from "@/config/products";
-import { store } from "@/config/store";
 import { QtySelector, meta } from "@/components/site";
 import { useCart } from "@/lib/cart";
 
@@ -42,10 +41,10 @@ function Page() {
           </ul>
           <div className="ml-auto mt-8 max-w-sm space-y-2 text-sm">
             <div className="flex justify-between"><span>Subtotal</span><span>{formatAUD(cart.subtotal)}</span></div>
-            <div className="flex justify-between text-muted-foreground"><span>Shipping / pickup</span><span className="text-right">{store.fulfilment.shipping}</span></div>
-            <div className="flex justify-between border-t pt-2 text-lg"><span>Total (excl. delivery)</span><span>{formatAUD(cart.subtotal)}</span></div>
+            <div className="flex justify-between text-muted-foreground"><span>Shipping / pickup</span><span className="text-right">Calculated at checkout when rates are available</span></div>
+            <div className="flex justify-between border-t pt-2 text-lg"><span>Indicative subtotal</span><span>{formatAUD(cart.subtotal)}</span></div>
             <p className="text-xs text-muted-foreground">Prices in AUD; suggested and not final.</p>
-            <Link to="/checkout" className="btn-primary mt-4 w-full">Continue to demo checkout</Link>
+            <Link to="/checkout" className="btn-primary mt-4 w-full">Enter delivery details</Link>
           </div>
         </>
       )}
